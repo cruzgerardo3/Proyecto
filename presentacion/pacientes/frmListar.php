@@ -6,13 +6,13 @@ include_once('datos/conf.php');
 
     <div class="row mt-5">
         <div class="col-3 ml-1">
-            <button type="button" class="btn btn-danger" onClick="location.replace('index.php');">Atras</button>
+            <button type="button" class="btn btn-danger" onClick="location.replace('index.php');"><i class="bi bi-box-arrow-left me-2"style="width: 30px"></i>Atras</button>
         </div>
         <div class="col-4">
             <input type="text" class="form-control" placeholder="Buscar un registro...">
         </div>
         <div class="col-2">
-            <button class="btn btn-info">Buscar</button>
+            <button class="btn btn-info"><i class="bi bi-search" style="color: #fff; width: 30px"></i></button>
         </div>
         <div class="col-3">
             <button type="button" class="btn btn-success" onClick="location.replace('index.php?mod=pa&form=nu');">Agregar paciente</button>
@@ -36,11 +36,32 @@ include_once('datos/conf.php');
         <tbody>
         <?php 
             foreach($array as $datos){
+
+               //Calculamos la edad a partir de la fecha de nacimiento capturada desde la base de datos 
+                $dia = date("j");
+                $mes = date("n");
+                $anio = date("Y");
+
+                $nacimiento = explode("-", $datos['fechanac']);
+                $DiaNac = $nacimiento[2];
+                $MesNac = $nacimiento[1];
+                $AnioNac = $nacimiento[0];
+
+                //Si el mes es el mismo pero el dia es inferior, aun no ha cumplido anos, le restamos un ano al actual 
+                if (($MesNac == $mes) && ($DiaNac > $dia)){
+                  $anio = ($anio-1);
+                }
+                //Si el mes es superior al actual tampoco habra cumplido anios, por lo tanto le restamos al ano actual 
+                if ($MesNac > $mes){
+                  $anio = ($anio-1);
+                }
+                //Ya no habran mas condiciones, simplemente restamos los anios y simplemente mostramos el resultado como su edad
+                $Edad = ($anio-$AnioNac);
         ?>
             <tr>
                 <th scope="col"><?php echo $i; ?></th>
                 <td><?php echo $datos['nombres']; ?> &nbsp <?php echo $datos['apellidos']; ?></td>
-                <td><?php echo $datos['fechanac']; ?></td>
+                <td><?php echo $Edad." años"; ?></td>
                 <td class="row">
                     <div class="mr-4 col-1">
                         <a href="index.php?mod=pa&form=ed&id=<?php echo $datos['_id']; ?>" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
@@ -63,3 +84,11 @@ include_once('datos/conf.php');
         ?>
             
 </div>
+
+<script>
+    function Eliminar( paId ){
+        if( confirm('Seguro que desea eliminar el registro?')){
+            window.location.replace('index.php?mod=pa&form=el&id='+paId);
+        }
+    }
+</script>
