@@ -36,11 +36,32 @@ include_once('datos/conf.php');
             <tbody>
             <?php  
                 foreach($array as $datos){
+
+                    //Calculamos la edad a partir de la fecha de nacimiento capturada desde la base de datos 
+                    $dia = date("j");
+                    $mes = date("n");
+                    $anio = date("Y");
+
+                    $nacimiento = explode("-", $datos['fechanac']);
+                    $DiaNac = $nacimiento[2];
+                    $MesNac = $nacimiento[1];
+                    $AnioNac = $nacimiento[0];
+
+                    //Si el mes es el mismo pero el dia es inferior, aun no ha cumplido anos, le restamos un ano al actual 
+                    if (($MesNac == $mes) && ($DiaNac > $dia)){
+                      $anio = ($anio-1);
+                    }
+                    //Si el mes es superior al actual tampoco habra cumplido anios, por lo tanto le restamos al ano actual 
+                    if ($MesNac > $mes){
+                      $anio = ($anio-1);
+                    }
+                    //Ya no habran mas condiciones, simplemente restamos los anios y simplemente mostramos el resultado como su edad
+                    $Edad = ($anio-$AnioNac);
             ?>
                 <tr>
                     <th scope="col"><?php echo $i; ?></th>
                     <td><?php echo $datos['nombres']; ?> &nbsp <?php echo $datos['apellidos']; ?></td>
-                    <td><?php echo $datos['fechanac']; ?></td>
+                    <td><?php echo $Edad." años"; ?></td>
                     <td><?php echo $datos['jvpm']; ?></td>
                     <td><?php echo $datos['especialidad']; ?></td>
                     <td class="row">

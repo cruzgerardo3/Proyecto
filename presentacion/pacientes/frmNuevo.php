@@ -5,7 +5,7 @@
 			<div class="card-body">
 				<div class="form-row mt-3">
 					<div class="form-group col-md-2 ms-5 mb-4">
-						<button type="button" class="btn btn-danger" onClick="location.replace('index.php?mod=pa&form=li');">Cancelar</button>
+						<button type="button" class="btn btn-danger" onClick="location.replace('index.php?mod=pa&form=li');"><i class="bi bi-x-circle me-2"style=" width: 30px"></i>Cancelar</button>
 					</div>
 				</div>
 				<div class="form-row d-flex justify-content-center mb-4">
@@ -59,14 +59,21 @@
 				</div>
 				<div class="form-row d-flex justify-content-center mt-2">
 			 		<div class="form-group">
-			 			 <button type="button" class="btn btn-outline-success" onClick="Agregar();">Guardar</button>
+			 			 <button type="button" class="btn btn-outline-success" onClick="Agregar();"><i class="bi bi-file-earmark-post-fill me-2" style="width: 30px"></i>Guardar</button>
 			 		</div>
 			 		<div class="col-md-1"></div>
 			 		<div class="form-group">
-			 			<button type="reload" class="btn btn-outline-danger">Restablecer</button>
+			 			<button type="reload" class="btn btn-outline-danger"><i class="bi bi-arrow-clockwise me-2" style="width: 30px"></i>Restablecer</button>
 			 		</div>
  				</div>
 			</div>
 		 </div>
 	</form>
-</div>				
+</div>	
+
+<script>
+	function Agregar(){
+		document.forms.frmNuevo.action = 'index.php?mod=pa&form=ag';
+		document.forms.frmNuevo.submit();
+	}
+</script>			
