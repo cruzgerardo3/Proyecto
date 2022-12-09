@@ -1,5 +1,8 @@
 <?php 
-include_once('datos/conf.php');
+require_once 'datos/conf.php';
+require_once 'negocio/pacientes.php';
+
+$Obj_pacientes = new Pacientes();
 
 ?>
 <div class="container">
@@ -21,10 +24,10 @@ include_once('datos/conf.php');
     <?php
     $i=1;
 
-    if($conn->pacientes->count()>0){
-        $array = $conn->pacientes->find();
+    if($Obj_pacientes->TotalRegistros()>0){
+        $array = $Obj_pacientes->ListarPacientes();
     ?>
-        <table class="table mt-3">
+        <table class="table table-light mt-3">
             <thead class="table-dark">
                 <tr>
                     <th scope="row">#</th>
@@ -62,13 +65,11 @@ include_once('datos/conf.php');
                 <th scope="col"><?php echo $i; ?></th>
                 <td><?php echo $datos['nombres']; ?> &nbsp <?php echo $datos['apellidos']; ?></td>
                 <td><?php echo $Edad." años"; ?></td>
-                <td class="row">
-                    <div class="mr-4 col-1">
-                        <a href="index.php?mod=pa&form=ed&id=<?php echo $datos['_id']; ?>" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
-                    </div>
-                    <div class="col-1">
-                        <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" class="delete"><i class="bi bi-trash3" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
-                    </div>
+                <td>
+                    <a href="index.php?mod=pa&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-plus-circle" title="Agregar consulta" style="color: #2EFE2E; width: 30px"></i></a>
+                    <a href="index.php?mod=pa&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-eye-fill ms-1" title="Detalles" style="color: blue; width: 30px"></i></a>
+                    <a href="index.php?mod=pa&form=ed&id=<?php echo $datos['_id']; ?>"><i class="bi bi-pencil ms-1" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
+                    <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" ><i class="bi bi-trash3 ms-1" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
                 </td>
             </tr>
         <?php 
