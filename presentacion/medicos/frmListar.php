@@ -1,5 +1,9 @@
 <?php 
-include_once('datos/conf.php');
+require_once 'datos/conf.php';
+require_once 'negocio/medicos.php';
+
+$Obj_medicos = new Medicos();
+
  ?>
 <div class="container">
     <div class="row mt-5">
@@ -19,8 +23,8 @@ include_once('datos/conf.php');
     <?php
     $i=1;
 
-    if($conn->medicos->count()>0){
-        $array = $conn->medicos->find();
+    if($Obj_medicos->TotalRegistros()>0){
+        $array = $Obj_medicos->ListarMedicos();
     ?>
         <table class="table mt-3">
             <thead class="table-dark">

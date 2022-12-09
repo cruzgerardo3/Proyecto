@@ -67,6 +67,4 @@ class Pacientes extends Datos {
 		);
 		return true;
 	}
-
-
 }?>
