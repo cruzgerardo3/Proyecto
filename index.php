@@ -36,11 +36,22 @@ switch( @$_GET["mod"] ){
 </head>
 <body>
 <style>
+body{
+    background-color: #CEECF5;        
+}
 .container{
     width: 60%;
     margin: 50px auto;
     height: auto;
-    font-family: Arial, sans-serif;         
+    font-family: Arial, sans-serif; 
+    background-color: ;        
+}
+.card, .table{
+    background-color: #FAFAFA;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.form-control:focus{
+    box-shadow: none;
 }
 </style>
     <div id="DivMainIndex" style='position: relative; margin: 0 auto 0 auto;'>
