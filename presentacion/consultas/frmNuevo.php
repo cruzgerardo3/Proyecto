@@ -23,10 +23,11 @@ foreach( $array as $datos ){
 				<div class="form-row d-flex justify-content-center mb-4">
 					<h3>Nueva consulta</h3>
 				</div>
-				<div class="form-row ms-4 mb-4">
+				<div class="form-row ms-5 mb-4">
 					<div class="form-group col-md-4">
 						<label for="">Paciente:</label>
-						<input type="text" name="txtNombre" class="form-control" value="<?php echo $array['nombres']; ?> &nbsp <?php echo $array['apellidos']; ?>">
+						<input type="text" name="txtNombre" class="form-control" value="<?php echo $array['nombres']; ?> &nbsp <?php echo $array['apellidos']; ?>" readonly>
+						<input type="hidden" name="hidIdPaciente" value="<?php echo $array['_id']; ?>">
 					</div>
 				</div>
 				<div class="form-row d-flex justify-content-center mb-4">
@@ -67,7 +68,7 @@ foreach( $array as $datos ){
 
 <script>
 	function Agregar(){
-		document.forms.frmNuevo.action = 'index.php?mod=me&form=ag';
+		document.forms.frmNuevo.action = 'index.php?mod=con&form=ag';
 		document.forms.frmNuevo.submit();
 	}
 </script>

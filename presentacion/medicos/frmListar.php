@@ -8,7 +8,7 @@ $Obj_medicos = new Medicos();
 <div class="container">
     <div class="row mt-5">
         <div class="col-3 ml-1">
-            <button type="button" class="btn btn-danger" onClick="location.replace('index.php');"><i class="bi bi-box-arrow-left me-2"style="width: 30px"></i>Atras</button>
+            <button type="button" class="btn btn-danger" onClick="location.replace('index.php?mod=ci');"><i class="bi bi-box-arrow-left me-2"style="width: 30px"></i>Atras</button>
         </div>
         <div class="col-4">
             <input type="text" class="form-control" placeholder="Buscar un registro...">

@@ -1,12 +1,24 @@
 <?php
 //Configuracion de la zona horaria
 date_default_timezone_set("America/El_Salvador");
+session_start();
+if($_SESSION['user'] != ""){
+    
+}
+else{
+    header('Location:login.php');
+}
 
 //Seleccion del modulo
 switch( @$_GET["mod"] ){
     //Redirecciona al modulo de medicos
     case 'me':
-        $Modulo = 'presentacion/medicos/index.php';
+        if($_SESSION['tipousuario'] == "A"){
+            $Modulo = 'presentacion/medicos/index.php';
+        }
+        else{
+            header('Location:index.php');
+        }
         break;
     //Redirecciona al modulo de pacientes
     case 'pa':
@@ -15,6 +27,9 @@ switch( @$_GET["mod"] ){
     //Redirecciona al modulo de consultas 
     case 'con':
         $Modulo = 'presentacion/consultas/index.php';
+        break;
+    case 'ci': 
+        $Modulo = 'presentacion/main.php';
         break;
     //Modulo por defecto, menu principal
     default: 
@@ -45,6 +60,9 @@ body{
     height: auto;
     font-family: Arial, sans-serif; 
     background-color: ;        
+}
+.card{
+    border: 0px;
 }
 .card, .table{
     background-color: #FAFAFA;

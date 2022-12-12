@@ -5,9 +5,12 @@ class Pacientes extends Datos {
 	public $Nombres;
 	public $Apellidos;
 	public $FechaNac;
+	public $Genero;
 	public $TipoSangre;
 	public $Telefono;
 	public $Enfermedad;
+	public $Peso;
+	public $Altura;
 	public $Direccion;
 
 	//Metodos
@@ -36,9 +39,12 @@ class Pacientes extends Datos {
 					'nombres'=> addslashes($this->Nombres),
 					'apellidos'=> addslashes($this->Apellidos),
 					'fechanac'=> addslashes($this->FechaNac),
+					'genero'=> addslashes($this->Genero),
 					'tiposangre'=> addslashes($this->TipoSangre),
 					'telefono'=> addslashes($this->Telefono),
 					'enfermedad'=> addslashes($this->Enfermedad),
+					'peso'=> addslashes($this->Peso),
+					'altura'=> addslashes($this->Altura),
 					'direccion'=> addslashes($this->Direccion)
 				]
 			]);
@@ -50,9 +56,12 @@ class Pacientes extends Datos {
 			'nombres'=> addslashes($this->Nombres),
 			'apellidos'=> addslashes($this->Apellidos),
 			'fechanac'=> addslashes($this->FechaNac),
+			'genero'=> addslashes($this->Genero),
 			'tiposangre'=> addslashes($this->TipoSangre),
 			'telefono'=> addslashes($this->Telefono),
 			'enfermedad'=> addslashes($this->Enfermedad),
+			'peso'=> addslashes($this->Peso),
+			'altura'=> addslashes($this->Altura),
 			'direccion'=> addslashes($this->Direccion)
 		]);
 

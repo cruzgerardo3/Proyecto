@@ -27,22 +27,29 @@ foreach($array as $datos){
 				<div class="form-row d-flex justify-content-center mb-4">
 					<div class="form-group col-md-4">
 						<input type="hidden" value="<?php echo $array['_id'];?>" name="hidId">
-						<label for="">Nombres del paciente:</label>
-						<input type="text" name="txtNombres" id="txtNombres" class="form-control" value="<?php echo $array['nombres'];?>" readonly>
+						<label for="">Paciente:</label>
+						<input type="text" name="txtNombres" id="txtNombres" class="form-control" value="<?php echo $array['nombres'];?> &nbsp <?php echo $array['apellidos'];?>" readonly>
 					</div>
 					<div class="col-md-1"></div>
-					<div class="form-group col-md-4">
-						<label for="">Apellidos del paciente:</label>
-						<input type="text" name="txtApellidos" id="txtApellidos" class="form-control" value="<?php echo $array['apellidos'];?>" readonly>
-					</div>
-				</div>
-				<div class="form-row d-flex justify-content-center mb-4">
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-3">
 						<label for="">Fecha de nacimiento:</label>
 						<input type="date" class="form-control" name="dateFechaNac" id="dateFechaNac" value="<?php echo $array['fechanac'];?>" readonly>
 					</div>
-					<div class="form-group col-md-1"></div>
-					<div class="form-group col-md-4">
+				</div>
+				<div class="form-row d-flex justify-content-between mb-4">
+					<div class="form-group col-md-2 ms-3">
+						<label for="">Peso:</label>
+						<input type="text" class="form-control" value="<?php echo $array['peso'];?>" readonly>
+					</div>	
+					<div class="form-group col-md-2 ms-3">
+						<label for="">Altura:</label>
+						<input type="text" class="form-control" value="<?php echo $array['altura'];?>" readonly>
+					</div>	
+					<div class="form-group col-md-2">
+						<label for="">Genero</label>
+						<input type="text" class="form-control" value="<?php echo $array['genero'];?>" readonly>
+					</div>
+					<div class="form-group me-3 col-md-2">
 						<label>Tipo de sangre:</label>
 			 			<input type="text" class="form-control" name="txtTipoSangre" id="txtTipoSangre" value="<?php echo $array['tiposangre'];?>" readonly> 
 					</div>

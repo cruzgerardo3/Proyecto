@@ -3,11 +3,17 @@
     
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <?php 
+        if ($_SESSION['tipousuario'] == "A"){
+         ?>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.php?mod=me&form=li">Medicos</a>
         </li>
+      <?php 
+        } 
+        ?>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?mod=pa&form=li">Pacientes</a>
+          <a class="nav-link" aria-current="page" href="index.php?mod=pa&form=li">Pacientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?mod=con&form=li">Consultas</a>
@@ -18,7 +24,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="cerrarSesion.php">Cerrar sesión</a></li>
           </ul>
         </li>
       </ul>
