@@ -66,7 +66,7 @@ $Obj_pacientes = new Pacientes();
                 <td><?php echo $datos['nombres']; ?> &nbsp <?php echo $datos['apellidos']; ?></td>
                 <td><?php echo $Edad." años"; ?></td>
                 <td>
-                    <a href="index.php?mod=pa&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-plus-circle" title="Agregar consulta" style="color: #2EFE2E; width: 30px"></i></a>
+                    <a href="index.php?mod=con&form=nu&id=<?php echo $datos['_id']; ?>"><i class="bi bi-plus-circle" title="Agregar consulta" style="color: #2EFE2E; width: 30px"></i></a>
                     <a href="index.php?mod=pa&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-eye-fill ms-1" title="Detalles" style="color: blue; width: 30px"></i></a>
                     <a href="index.php?mod=pa&form=ed&id=<?php echo $datos['_id']; ?>"><i class="bi bi-pencil ms-1" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
                     <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" ><i class="bi bi-trash3 ms-1" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>

@@ -8,13 +8,13 @@ $Obj_medicos = new Medicos();
 <div class="container">
     <div class="row mt-5">
         <div class="col-3 ml-1">
-            <button type="button" class="btn btn-danger" onClick="location.replace('index.php');">Atras</button>
+            <button type="button" class="btn btn-danger" onClick="location.replace('index.php');"><i class="bi bi-box-arrow-left me-2"style="width: 30px"></i>Atras</button>
         </div>
         <div class="col-4">
             <input type="text" class="form-control" placeholder="Buscar un registro...">
         </div>
         <div class="col-2">
-            <button class="btn btn-info">Buscar</button>
+            <button class="btn btn-info"><i class="bi bi-search" style="color: #fff; width: 30px"></i></button>
         </div>
         <div class="col-3">
             <button type="button" class="btn btn-success" onClick="location.replace('index.php?mod=pa&form=nu');">Agregar medico</button>

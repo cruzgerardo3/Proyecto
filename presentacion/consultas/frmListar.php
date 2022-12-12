@@ -1,5 +1,8 @@
 <?php  
-include_once('datos/conf.php');
+require_once 'datos/conf.php';
+require_once 'negocio/consultas.php';
+
+$Obj_consultas = new Consultas();
 ?>
 <div class="container">
 
@@ -17,7 +20,7 @@ include_once('datos/conf.php');
     </div>
     <?php
     $i=1;
-    if($conn->consultas->count()>0){
+    if($Obj_consultas->TotalRegistros()>0){
         $array = $conn->consultas->find();
     ?>
     <table class="table mt-2">
