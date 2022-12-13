@@ -72,8 +72,9 @@ $Obj_pacientes = new Pacientes();
                 <td><?php echo $Edad; ?></td>
                 <td><?php echo $datospaciente['tiposangre']; ?></td>
                 <td>
-                    <a href="frmModificar.php?id=" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
-                    <a href="" onClick="Eliminar('');" class="delete ml-3"><i class="bi bi-trash3" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
+                    <a href="index.php?mod=con&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-eye-fill ms-1" title="Detalles" style="color: blue; width: 30px"></i></a>
+                    <a href="index.php?mod=con&form=ed&id=<?php echo $datos['_id']; ?>" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
+                    <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" class="delete ml-3"><i class="bi bi-trash3" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
                 </td>
             </tr>
         <?php  
@@ -88,3 +89,10 @@ $Obj_pacientes = new Pacientes();
     }
     ?>   
 </div>
+<script>
+    function Eliminar( paId ){
+        if( confirm('Seguro que desea eliminar el registro?')){
+            window.location.replace('index.php?mod=con&form=el&id='+paId);
+        }
+    }
+</script>

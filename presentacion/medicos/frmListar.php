@@ -17,7 +17,7 @@ $Obj_medicos = new Medicos();
             <button class="btn btn-info"><i class="bi bi-search" style="color: #fff; width: 30px"></i></button>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-success" onClick="location.replace('index.php?mod=pa&form=nu');">Agregar medico</button>
+            <button type="button" class="btn btn-success" onClick="location.replace('index.php?mod=me&form=nu');">Agregar medico</button>
         </div>
     </div>
     <?php
@@ -89,3 +89,11 @@ $Obj_medicos = new Medicos();
         }
         ?>          
 </div>
+
+<script>
+    function Eliminar( paId ){
+        if( confirm('Seguro que desea eliminar el registro?')){
+            window.location.replace('index.php?mod=me&form=el&id='+paId);
+        }
+    }
+</script>

@@ -1,6 +1,5 @@
 <?php  
 require_once 'datos/conf.php';
-session_start();
 if($_SESSION['user'] != ""){
 	
 }
@@ -8,13 +7,13 @@ else{
 	header('Location:login.php');
 }
 
-$Obj_datos = new Datos();
-
 $usuario = (isset($_POST['txtUser']) ? $_POST['txtUser']:"");
 $pass = (isset($_POST['txtPass']) ? $_POST['txtPass']:"");
 
 
 if ($usuario != "" && $pass != ""){
+	session_start();
+	$Obj_datos = new Datos();
 
 	$array = $Obj_datos->Conectar()->medicos->find(['usuario'=>$usuario]);
 	foreach($array as $datos){
@@ -48,10 +47,11 @@ if ($usuario != "" && $pass != ""){
 	}
 
 	if ($val){
-		header('Location:index.php?mod=ci&id='.$_SESSION['id']);
+		header('Location:index.php');
 	}
 	else {
-		header('Location:index.php?me='.$msj);
+		header('Location:login.php?me='.$msj);
+		
 	}
 }
 

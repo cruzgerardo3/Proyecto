@@ -1,11 +1,10 @@
 <?php
-include_once('datos/conf.php');
+require_once 'datos/conf.php';
+require_once 'negocio/medicos.php';
 
-$conn->medicos->deleteOne(
-    array(
-        "_id"=> new MongoDB\BSON\ObjectId($_GET['id'])
-    )
-);
+$Obj_medicos = new Medicos();
 
-header('Location:index.php?mod=me&form=li');
+if ($Obj_medicos->Eliminar( $_GET['id'] ) ){
+    echo "<script>location.replace('index.php?mod=me&form=li');</script>";
+}
 ?>

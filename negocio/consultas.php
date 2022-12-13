@@ -16,6 +16,14 @@ class Consultas extends Datos {
 		return $this->Conectar()->consultas->count();
 	}
 
+	public function BuscarPorId( $paId ){
+		return $this->Conectar()->consultas->find(
+			array(
+				"_id"=> new MongoDB\BSON\ObjectId( $paId )
+			)
+		);
+	}
+
 	public function Agregar(){
 		$this->Conectar()->consultas->insertOne([
 			'idmedico'=> new MongoDB\BSON\ObjectId($this->IdMedico),
@@ -52,6 +60,7 @@ class Consultas extends Datos {
 				"_id"=> new MongoDB\BSON\ObjectId( $paId )
 			)
 		);
+		return true;
 	}
 
 }

@@ -8,4 +8,4 @@ if ( $Obj_pacientes->Eliminar( $_GET['id'] ) ){
 	echo "<script>location.replace('index.php?mod=pa&form=li');</script>";
 }
 
- ?>
+?>

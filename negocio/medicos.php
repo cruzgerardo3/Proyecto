@@ -4,11 +4,13 @@ class Medicos extends Datos{
 	public $Apellidos;
 	public $FechaNac;
 	public $Dui;
+	public $Genero;
 	public $Especialidad;
 	public $JVPM;
 	public $Telefono;
 	public $Usuario;
 	public $Pass;
+	public $TipoUsuario;
 
 	public function TotalRegistros(){
 		return $this->Conectar()->medicos->count();
@@ -36,11 +38,13 @@ class Medicos extends Datos{
 					'apellidos'=> addslashes($this->Apellidos),
 					'fechanac'=> addslashes($this->FechaNac),
 					'dui'=> addslashes($this->Dui),
+					'genero'=> addslashes($this->Genero),
 					'especialidad'=> addslashes($this->Especialidad),
 					'jvpm'=> addslashes($this->JVPM),
 					'telefono'=> addslashes($this->Telefono),
 					'usuario'=> addslashes($this->Usuario),
-					'pass'=> addslashes($this->Pass)
+					'pass'=> addslashes($this->Pass),
+					'tipousuario'=> addslashes($this->TipoUsuario)
 				]			
 			]);
 		return true;
@@ -52,11 +56,13 @@ class Medicos extends Datos{
 			'apellidos'=> addslashes($this->Apellidos),
 			'fechanac'=> addslashes($this->FechaNac),
 			'dui'=> addslashes($this->Dui),
+			'genero'=> addslashes($this->Genero),
 			'especialidad'=> addslashes($this->Especialidad),
 			'jvpm'=> addslashes($this->JVPM),
 			'telefono'=> addslashes($this->Telefono),
 			'usuario'=> addslashes($this->Usuario),
-			'pass'=> addslashes($this->Pass)
+			'pass'=> addslashes($this->Pass),
+			'tipousuario'=> addslashes($this->TipoUsuario)
 		]);
 		return true;
 	}
