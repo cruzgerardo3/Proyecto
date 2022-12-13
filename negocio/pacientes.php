@@ -5,18 +5,29 @@ class Pacientes extends Datos {
 	public $Nombres;
 	public $Apellidos;
 	public $FechaNac;
+	public $Genero;
 	public $TipoSangre;
 	public $Telefono;
 	public $Enfermedad;
+	public $Peso;
+	public $Altura;
 	public $Direccion;
 
 	//Metodos
-	public function TotalRegistros(){
-		return $this->Conectar()->pacientes->count();
+	public function TotalRegistros( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->pacientes->count(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex]
+		]]);
 	}
 
-	public function ListarPacientes(){
-		return $this->Conectar()->pacientes->find();
+	public function ListarPacientes( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->pacientes->find(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex]
+		]]);
 	}
 
 	public function BuscarPorId( $paId ){
@@ -36,9 +47,12 @@ class Pacientes extends Datos {
 					'nombres'=> addslashes($this->Nombres),
 					'apellidos'=> addslashes($this->Apellidos),
 					'fechanac'=> addslashes($this->FechaNac),
+					'genero'=> addslashes($this->Genero),
 					'tiposangre'=> addslashes($this->TipoSangre),
 					'telefono'=> addslashes($this->Telefono),
 					'enfermedad'=> addslashes($this->Enfermedad),
+					'peso'=> addslashes($this->Peso),
+					'altura'=> addslashes($this->Altura),
 					'direccion'=> addslashes($this->Direccion)
 				]
 			]);
@@ -50,9 +64,12 @@ class Pacientes extends Datos {
 			'nombres'=> addslashes($this->Nombres),
 			'apellidos'=> addslashes($this->Apellidos),
 			'fechanac'=> addslashes($this->FechaNac),
+			'genero'=> addslashes($this->Genero),
 			'tiposangre'=> addslashes($this->TipoSangre),
 			'telefono'=> addslashes($this->Telefono),
 			'enfermedad'=> addslashes($this->Enfermedad),
+			'peso'=> addslashes($this->Peso),
+			'altura'=> addslashes($this->Altura),
 			'direccion'=> addslashes($this->Direccion)
 		]);
 

@@ -1,12 +1,24 @@
 <?php
 //Configuracion de la zona horaria
 date_default_timezone_set("America/El_Salvador");
+session_start();
+if($_SESSION['user'] != ""){
+
+}
+else{
+    header('Location:login.php');
+}
 
 //Seleccion del modulo
 switch( @$_GET["mod"] ){
     //Redirecciona al modulo de medicos
     case 'me':
-        $Modulo = 'presentacion/medicos/index.php';
+        if($_SESSION['tipousuario'] == "A"){
+            $Modulo = 'presentacion/medicos/index.php';
+        }
+        else{
+            header('Location:index.php');
+        }
         break;
     //Redirecciona al modulo de pacientes
     case 'pa':
@@ -32,6 +44,9 @@ switch( @$_GET["mod"] ){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/prototype.js"></script>
     <title>Consultorio medico</title>
 </head>
 <body>
@@ -45,6 +60,9 @@ body{
     height: auto;
     font-family: Arial, sans-serif; 
     background-color: ;        
+}
+.card{
+    border: 0px;
 }
 .card, .table{
     background-color: #FAFAFA;

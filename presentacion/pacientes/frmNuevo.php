@@ -22,13 +22,20 @@
 						<input type="text" name="txtApellidos" id="txtApellidos" class="form-control">
 					</div>
 				</div>
-				<div class="form-row d-flex justify-content-center mb-4">
-					<div class="form-group  col-md-4">
+				<div class="form-row d-flex justify-content-between mb-4">
+					<div class="form-group ms-3 col-md-3">
 						<label for="">Fecha de nacimiento:</label>
 						<input type="date" class="form-control" name="dateFechaNac" id="dateFechaNac">
 					</div>
-					<div class="form-group col-md-1"></div>
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-3">
+						<label for="">Genero</label>
+						<select name="cbxGenero" id="cbxGenero" class="form-control">
+				 			<option selected>Seleccione..</option>
+				 			<option value="Masculino">Masculino</option>
+				 			<option value="Femenino">Femenino</option>
+			 			</select>
+					</div>
+					<div class="form-group col-md-3 me-3">
 						<label>Tipo de sangre:</label>
 			 			<select name="cbxTipoSangre" id="cbxTipoSangre" class="form-control">
 				 			<option selected>Seleccione..</option>
@@ -53,6 +60,17 @@
 						<label for="">Enfermedad:</label>
 						<input type="text" name="txtEnfermedad" id="txtEnfermedad" class="form-control">
 					</div>
+				</div>
+				<div class="form-row d-flex justify-content-center mb-4">
+					 <div class="form-group col-md-4">
+					 	<label for="">Peso</label>
+					 	<input type="text" name="txtPeso" id="txtPeso" class="form-control">
+					 </div>
+					 <div class="col-md-1"></div>
+					 <div class="form-group col-md-4">
+					 	<label for="">Altura</label>
+					 	<input type="text" name="txtAltura" id="txtAltura" class="form-control">
+					 </div>
 				</div>
 				<div class="form-row d-flex justify-content-center mb-4">
 					<div class="form-group col-md-8">

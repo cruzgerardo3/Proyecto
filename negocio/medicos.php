@@ -4,18 +4,32 @@ class Medicos extends Datos{
 	public $Apellidos;
 	public $FechaNac;
 	public $Dui;
+	public $Genero;
 	public $Especialidad;
 	public $JVPM;
 	public $Telefono;
 	public $Usuario;
 	public $Pass;
+	public $TipoUsuario;
 
-	public function TotalRegistros(){
-		return $this->Conectar()->medicos->count();
+	public function TotalRegistros( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->medicos->count(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex],
+			['jvpm' => $Regex],
+			['especialidad' => $Regex]
+		]]);
 	}
 
-	public function ListarMedicos(){
-		return $this->Conectar()->medicos->find();
+	public function ListarMedicos( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->medicos->find(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex],
+			['jvpm' => $Regex],
+			['especialidad' => $Regex]
+		]]);
 	}
 
 	public function BuscarPorId( $paId ){
@@ -36,11 +50,13 @@ class Medicos extends Datos{
 					'apellidos'=> addslashes($this->Apellidos),
 					'fechanac'=> addslashes($this->FechaNac),
 					'dui'=> addslashes($this->Dui),
+					'genero'=> addslashes($this->Genero),
 					'especialidad'=> addslashes($this->Especialidad),
 					'jvpm'=> addslashes($this->JVPM),
 					'telefono'=> addslashes($this->Telefono),
 					'usuario'=> addslashes($this->Usuario),
-					'pass'=> addslashes($this->Pass)
+					'pass'=> addslashes($this->Pass),
+					'tipousuario'=> addslashes($this->TipoUsuario)
 				]			
 			]);
 		return true;
@@ -52,11 +68,13 @@ class Medicos extends Datos{
 			'apellidos'=> addslashes($this->Apellidos),
 			'fechanac'=> addslashes($this->FechaNac),
 			'dui'=> addslashes($this->Dui),
+			'genero'=> addslashes($this->Genero),
 			'especialidad'=> addslashes($this->Especialidad),
 			'jvpm'=> addslashes($this->JVPM),
 			'telefono'=> addslashes($this->Telefono),
 			'usuario'=> addslashes($this->Usuario),
-			'pass'=> addslashes($this->Pass)
+			'pass'=> addslashes($this->Pass),
+			'tipousuario'=> addslashes($this->TipoUsuario)
 		]);
 		return true;
 	}

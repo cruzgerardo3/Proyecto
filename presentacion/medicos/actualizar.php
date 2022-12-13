@@ -16,7 +16,7 @@ $Obj_medicos->Usuario = $_POST['txtUser'];
 $Obj_medicos->Pass = $_POST['passCon'];
 $Obj_medicos->TipoUsuario = $_POST['cbxTipoUsuario'];
 
-if ($Obj_medicos->Agregar() ){
+if ($Obj_medicos->Actualizar( $_POST['hidId'] ) ){
 	echo "<script>location.replace('index.php?mod=me&form=li');</script>";
 }
 
