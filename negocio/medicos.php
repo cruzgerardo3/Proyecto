@@ -12,12 +12,24 @@ class Medicos extends Datos{
 	public $Pass;
 	public $TipoUsuario;
 
-	public function TotalRegistros(){
-		return $this->Conectar()->medicos->count();
+	public function TotalRegistros( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->medicos->count(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex],
+			['jvpm' => $Regex],
+			['especialidad' => $Regex]
+		]]);
 	}
 
-	public function ListarMedicos(){
-		return $this->Conectar()->medicos->find();
+	public function ListarMedicos( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->medicos->find(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex],
+			['jvpm' => $Regex],
+			['especialidad' => $Regex]
+		]]);
 	}
 
 	public function BuscarPorId( $paId ){

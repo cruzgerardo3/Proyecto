@@ -23,7 +23,7 @@
         
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
+            <li><a class="dropdown-item" href="index.php?mod=me&form=de&id=<?php echo $_SESSION['id']; ?>">Mi cuenta</a></li>
             <li><a class="dropdown-item" href="cerrarSesion.php">Cerrar sesión</a></li>
           </ul>
         </li>

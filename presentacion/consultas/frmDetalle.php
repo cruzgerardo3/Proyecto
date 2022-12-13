@@ -29,15 +29,18 @@ foreach( $paciente as $list ){
 
 <div class="container">
 	<form action="" method="post" name="frmEditar">
-		<div class="form-row">
+		<div class="form-row d-flex justify-content-between">
 			<div class="form-group col-md-2 ms-2 mb-3">
 				<button type="button" class="btn btn-danger" onClick="location.replace('index.php?mod=con&form=li');"><i class="bi bi-x-circle me-2"style=" width: 30px"></i>Atras</button>
 			</div>
+			<div class="form-group col-md-2">
+	 			<button type="button" class="btn btn-dark" onClick="window.open('reportes/detalleGeneral.php?id=<?php echo $array['_id']; ?>', 'ReporteDetConsulta', 'width=1000,height=700');"><i class="bi bi-printer-fill me-2"></i>Imprimir</button>
+	 		</div>
 		</div>
 		<div class="card">
 			<div class="card-body">
 				<div class="form-row d-flex justify-content-center mb-4">
-					<h3>Editar consulta</h3>
+					<h3>Detalles de consulta</h3>
 				</div>
 				<div class="form-row d-flex justify-content-between mb-4">
 					<div class="form-group ms-4 col-md-3">

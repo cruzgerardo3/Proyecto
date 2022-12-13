@@ -10,6 +10,27 @@ foreach( $array as $datos ){
     $array = $datos;
 }
 
+//Calculamos la edad a partir de la fecha de nacimiento capturada desde la base de datos 
+$dia = date("j");
+$mes = date("n");
+$anio = date("Y");
+
+$nacimiento = explode("-", $array['fechanac']);
+$DiaNac = $nacimiento[2];
+$MesNac = $nacimiento[1];
+$AnioNac = $nacimiento[0];
+
+//Si el mes es el mismo pero el dia es inferior, aun no ha cumplido anos, le restamos un ano al actual 
+if (($MesNac == $mes) && ($DiaNac > $dia)){
+  $anio = ($anio-1);
+}
+//Si el mes es superior al actual tampoco habra cumplido anios, por lo tanto le restamos al ano actual 
+if ($MesNac > $mes){
+  $anio = ($anio-1);
+}
+//Ya no habran mas condiciones, simplemente restamos los anios y simplemente mostramos el resultado como su edad
+$Edad = ($anio-$AnioNac);
+
 ?>
 
 <div class="container">
@@ -31,8 +52,8 @@ foreach( $array as $datos ){
                         <input type="text" name="txtNombres" id="txtNombres" class="form-control" value="<?php echo $array['nombres'];?> &nbsp <?php echo $array['apellidos'];?>" readonly>
                     </div>
                     <div class="form-group col-md-3 me-3">
-                        <label for="">Fecha de nacimiento:</label>
-                        <input type="text" name="dateFechaNac" id="dateFechaNac" class="form-control" value="<?php echo $array['fechanac']; ?>" readonly>
+                        <label for="">Edad:</label>
+                        <input type="text" name="dateFechaNac" id="dateFechaNac" class="form-control" value="<?php echo $Edad; ?> años" readonly>
                     </div>
                      <div class="form-group col-md-2 me-4">
                         <label for="">DUI:</label>

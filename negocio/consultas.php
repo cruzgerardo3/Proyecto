@@ -8,12 +8,18 @@ class Consultas extends Datos {
 	public $Impresion;
 	public $Plan;
 
-	public function ListarConsultas(){
-		return $this->Conectar()->consultas->find();
+	public function ListarConsultas( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->consultas->find(['$or' => [
+			['fecha' => $Regex]
+		]]);
 	}
 
-	public function TotalRegistros(){
-		return $this->Conectar()->consultas->count();
+	public function TotalRegistros( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->consultas->count(['$or' => [
+			['fecha' => $Regex]
+		]]);
 	}
 
 	public function BuscarPorId( $paId ){

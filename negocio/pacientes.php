@@ -14,12 +14,20 @@ class Pacientes extends Datos {
 	public $Direccion;
 
 	//Metodos
-	public function TotalRegistros(){
-		return $this->Conectar()->pacientes->count();
+	public function TotalRegistros( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->pacientes->count(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex]
+		]]);
 	}
 
-	public function ListarPacientes(){
-		return $this->Conectar()->pacientes->find();
+	public function ListarPacientes( $paBuscar ){
+		$Regex = new MongoDB\BSON\Regex( $paBuscar );
+		return $this->Conectar()->pacientes->find(['$or' => [
+			['nombres' => $Regex],
+			['apellidos' => $Regex]
+		]]);
 	}
 
 	public function BuscarPorId( $paId ){
