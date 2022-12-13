@@ -18,7 +18,7 @@ foreach( $array as $datos ){
         <div class="card">
             <div class="card-body">
                 <div class="form-row d-flex justify-content-center mb-4">
-                    <h3>Nuevo medico</h3>
+                    <h3>Editar registro de medico</h3>
                 </div>
                 <div class="form-row d-flex justify-content-between mb-4 ms-3">
                     <div class="form-group col-md-3">

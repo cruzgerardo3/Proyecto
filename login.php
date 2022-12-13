@@ -10,12 +10,17 @@
      <title>Inicio de sesion</title>
 </head>
 <body>
+<style>
+body{
+  background-color: #CEECF5;        
+}
+</style>
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
-            <h4 class="card-title text-center mb-5 fw-light fs-5">Iniciar Sesion</h4>
+            <h2 class="card-title text-center mb-5 fw-light fs-2">Iniciar Sesion</h2>
             <form action="validacion.php" method="POST">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="Usuario">

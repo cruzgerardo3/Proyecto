@@ -26,7 +26,6 @@ foreach($array as $datos){
 				</div>
 				<div class="form-row d-flex justify-content-center mb-4">
 					<div class="form-group col-md-4">
-						<input type="hidden" value="<?php echo $array['_id'];?>" name="hidId">
 						<label for="">Paciente:</label>
 						<input type="text" name="txtNombres" id="txtNombres" class="form-control" value="<?php echo $array['nombres'];?> &nbsp <?php echo $array['apellidos'];?>" readonly>
 					</div>

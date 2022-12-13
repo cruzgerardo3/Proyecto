@@ -68,13 +68,10 @@ $Obj_medicos = new Medicos();
                     <td><?php echo $Edad." años"; ?></td>
                     <td><?php echo $datos['jvpm']; ?></td>
                     <td><?php echo $datos['especialidad']; ?></td>
-                    <td class="row">
-                        <div class="mr-4 col-1">
-                            <a href="index.php?mod=me&form=ed&id=<?php echo $datos['_id']; ?>" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
-                        </div>
-                        <div class="col-1">
-                            <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" class="delete"><i class="bi bi-trash3" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
-                        </div>
+                    <td>
+                        <a href="index.php?mod=me&form=de&id=<?php echo $datos['_id']; ?>"><i class="bi bi-eye-fill ms-1" title="Detalles" style="color: blue; width: 30px"></i></a>
+                        <a href="index.php?mod=me&form=ed&id=<?php echo $datos['_id']; ?>" class="edit"><i class="bi bi-pencil" title="Editar" style="color: #00BFFF; width: 30px"></i></a>
+                        <a href="" onClick="Eliminar('<?php echo $datos['_id']; ?>');" class="delete"><i class="bi bi-trash3" title="Eliminar" data-toggle="tooltip" style="color: #FF0000; width: 30px"></i></a>
                     </td>
                 </tr>
             <?php 
